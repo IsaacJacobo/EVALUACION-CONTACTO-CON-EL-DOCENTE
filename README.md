@@ -7,6 +7,15 @@ Este es mi programa de gestión de libros electrónicos en base a las directrice
 
 ## Objetivo del programa
 Desarrollar una aplicación CLI (interfaz de línea de comandos) en Go para gestionar libros electrónicos: agregar, buscar y listar libros usando principios de POO como encapsulación e interfaces. Se añadieron además 8 servicios web como parte del aprendizaje sobre APIs REST.
+### Temas tratados en el semestre:
+
+- ¿Qué es Go? Lenguaje compilado, rápido y concurrente.
+- Funciones y estructuras de control (if, for, switch).
+- Slices, arrays y mapas.
+- Objetos y structs en Go.
+- POO: Encapsulación, interfaces.
+- Concurrencia con goroutines.
+- Desarrollo de servicios web con JSON.
 
 ## Fecha
 27 de Junio de 2025
