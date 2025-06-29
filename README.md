@@ -32,3 +32,59 @@ Desarrollar una aplicación CLI (interfaz de línea de comandos) en Go para gest
 - JSON (para serialización de datos)
 - API REST con net/http
 - Git y GitHub para control de versiones
+
+## Estructura del Proyecto
+
+gestion-libros-electronicos/
+├── main.go ← Aplicación de consola
+├── server.go ← Servidor con 8 servicios web
+├── README.md ← Explicación del proyecto
+├── presentacion/ ← Diapositivas .pptx o exportadas
+├── video/ ← Demostración grabada
+
+
+---
+
+## Servicios Web Implementados
+
+| Servicio | Ruta                   | Método | Función                  |
+|----------|------------------------|--------|---------------------------|
+| 1        | `/libros`              | GET    | Listar libros             |
+| 2        | `/libros/agregar`      | POST   | Agregar libro             |
+| 3        | `/libros/autor`        | GET    | Buscar por autor          |
+| 4        | `/libros/categoria`    | GET    | Buscar por categoría      |
+| 5        | `/libros/eliminar`     | DELETE | Eliminar por ID (índice)  |
+| 6        | `/libros/editar`       | PUT    | Editar libro por ID       |
+| 7        | `/libros/count`        | GET    | Contar libros             |
+| 8        | `/libros/titulos`      | GET    | Listar sólo los títulos   |
+
+---
+
+## Temas Integrados de la Asignatura
+
+- ✅ ¿Qué es Go? (Lenguaje compilado, concurrente)
+- ✅ Funciones y estructuras de control (`for`, `if`, `switch`)
+- ✅ Slices y arrays
+- ✅ Objetos y POO (struct `Book` con encapsulación)
+- ✅ Interfaces (`Printable` en consola)
+- ✅ Servicios Web (`net/http`, JSON)
+- ✅ Concurrencia (Go puede usar `go func()` fácilmente)
+
+---
+
+## Visualización del Futuro
+
+En una futura versión, este sistema se puede transformar en una plataforma educativa multiplataforma:
+
+- Biblioteca digital para escuelas y colegios
+- Sincronización con la nube
+- App móvil con préstamos, puntuaciones, login de usuarios
+- Recomendaciones por IA
+- Multilenguaje y estadísticas de lectura
+
+---
+
+## Conclusión Reflexiva
+
+Este proyecto me permitió aplicar todos los conocimientos aprendidos durante el semestre. Lo más desafiante fue la integración del sistema de consola con la lógica web, pero logré implementarlo con éxito. Aprendí a trabajar con servicios web, manejar estructuras de datos en Go, y representar la información en JSON para consumirla desde el navegador o herramientas como Postman.
+
