@@ -22,6 +22,12 @@ var books []Book
 // Servicio 1: Listar libros
 func listarLibros(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+
+	// Si books es nil, enviar slice vacío para que JSON sea []
+	if books == nil {
+		books = []Book{}
+	}
+
 	json.NewEncoder(w).Encode(books)
 }
 
@@ -123,15 +129,22 @@ func listarTitulos(w http.ResponseWriter, r *http.Request) {
 
 // Configuración del servidor
 func main() {
-	http.HandleFunc("/libros", listarLibros)                     // GET
-	http.HandleFunc("/libros/agregar", agregarLibro)             // POST
-	http.HandleFunc("/libros/autor", buscarPorAutor)             // GET
-	http.HandleFunc("/libros/categoria", buscarPorCategoria)     // GET
-	http.HandleFunc("/libros/eliminar", eliminarLibro)           // DELETE con ?id=
-	http.HandleFunc("/libros/editar", editarLibro)               // PUT con ?id=
-	http.HandleFunc("/libros/count", contarLibros)               // GET
-	http.HandleFunc("/libros/titulos", listarTitulos)            // GET
+	// Agregar libros de prueba para no ver null al inicio
+	books = []Book{
+		{Title: "El Quijote", Author: "Miguel de Cervantes", Category: "Clásico"},
+		{Title: "1984", Author: "George Orwell", Category: "Ficción"},
+	}
+
+	http.HandleFunc("/libros", listarLibros)                 // GET
+	http.HandleFunc("/libros/agregar", agregarLibro)         // POST
+	http.HandleFunc("/libros/autor", buscarPorAutor)         // GET
+	http.HandleFunc("/libros/categoria", buscarPorCategoria) // GET
+	http.HandleFunc("/libros/eliminar", eliminarLibro)       // DELETE con ?id=
+	http.HandleFunc("/libros/editar", editarLibro)           // PUT con ?id=
+	http.HandleFunc("/libros/count", contarLibros)           // GET
+	http.HandleFunc("/libros/titulos", listarTitulos)        // GET
 
 	fmt.Println("Servidor iniciado en http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
+
